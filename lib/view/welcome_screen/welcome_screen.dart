@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluxstore_app/global/reusable_button.dart';
+import 'package:fluxstore_app/utils/color_constants.dart';
+import 'package:fluxstore_app/view/intro_screen/intro_screen_1.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -11,8 +14,8 @@ class WelcomeScreen extends StatelessWidget {
         decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            colorFilter:
-                ColorFilter.mode(Colors.black.withAlpha(150), BlendMode.darken),
+            colorFilter: ColorFilter.mode(
+                ColorConstants.black.withAlpha(150), BlendMode.darken),
             image: AssetImage(
               "assets/images/image 45.png",
             ),
@@ -24,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
             Text(
               "Welcome to GemStore!",
               style: TextStyle(
-                  color: Color(0xffFFFFFF),
+                  color: ColorConstants.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 25),
             ),
@@ -34,23 +37,26 @@ class WelcomeScreen extends StatelessWidget {
             Text(
               "The home for a fashionista",
               style: TextStyle(
-                  color: Color(0xffFFFFFF),
+                  color: ColorConstants.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 16),
             ),
             SizedBox(
               height: 60,
             ),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 53, vertical: 15),
-              decoration: BoxDecoration(
-                  color: Color(0xffFFFFFF).withAlpha(50),
-                  borderRadius: BorderRadius.circular(29.5),
-                  border: Border.all(color: Color(0xffFFFFFF), width: 1.18)),
-              child: Text(
-                "Get Started",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
+            ResusableButton(
+              alpha: 160,
+              backgroundColor: ColorConstants.white,
+              boderColor: ColorConstants.lightGrey,
+              name: "Get Started!",
+              onButtonPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => IntroScreen1(),
+                  ),
+                );
+              },
             ),
             SizedBox(
               height: 100,
